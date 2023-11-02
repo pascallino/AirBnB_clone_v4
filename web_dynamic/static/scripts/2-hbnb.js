@@ -1,7 +1,5 @@
 $(document).ready(init);
 
-const HOST = '0.0.0.0';
-
 function init () {
   const amenityObj = {};
   $('.amenities .popover input').change(function () {
@@ -18,12 +16,11 @@ function init () {
 }
 
 function apiStatus () {
-  const API_URL = `http://localhost:5001/api/v1/status`;
+  const API_URL = 'http://localhost:5001/api/v1/status';
   $.get(API_URL, (data, textStatus) => {
     if (textStatus === 'success' && data.status === 'OK') {
       $('#api_status').addClass('available');
-     // $('#api_status').css('background-color', '#ff545f');
-
+      // $('#api_status').css('background-color', '#ff545f');
     } else {
       $('#api_status').removeClass('available');
     }
